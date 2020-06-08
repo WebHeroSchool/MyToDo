@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {count ,length} from './number.js';
+
 
 const text = "I'm the text";
 const logic = true;
@@ -25,6 +27,7 @@ function App() {
         {null}
         {false}
         {true}
+        <p>{count*length}</p>
       </header>
     </div>
   );
