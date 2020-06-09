@@ -1,7 +1,7 @@
 import React from 'react';
-import ItemList from './itemList';
-import Footer from './footer';
-import Input from './input';
+import ItemList from '../ItemList/ItemList';
+import Footer from '../Footer/Footer';
+import Input from '../Input/Input';
 
 
 const App = () => (<div>
