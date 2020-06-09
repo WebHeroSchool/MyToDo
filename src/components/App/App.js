@@ -4,13 +4,24 @@ import Footer from '../Footer/Footer';
 import Input from '../Input/Input';
 
 
-const todoItem = ['важное дело', 'дело', 'еще одно дело'];
+const App = () => {
+  const todoItems = [{
+    value: 'важное дело',
+  },
+  {
+    value: 'дело'
+  },
+  {
+    value: 'еще одно дело'
+  }];
 
-const App = () => (<div>
+return(
+<div>
   <h1>MyToDo</h1>
   <Input />
-  <ItemList todoItem={todoItem}/>
+  <ItemList todoItems={todoItems}/>
   <Footer count={3}/>
-</div>);
+</div>)
+};
 
 export default App;
