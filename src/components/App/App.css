@@ -1,0 +1,7 @@
+@import '../Fonts/Fonts.css';
+
+.wrap{
+  margin: auto;
+  width: 300px;
+  font-family: 'Ubuntu';  
+}
