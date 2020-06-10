@@ -7,12 +7,15 @@ import styles from './App.module.css'
 const App = () => {
   const todoItems = [{
     value: 'важное дело',
+    done: false
   },
   {
-    value: 'дело'
+    value: 'дело',
+    done: true
   },
   {
-    value: 'еще одно дело'
+    value: 'еще одно дело',
+    done: false
   }];
 
 return(
