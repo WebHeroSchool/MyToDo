@@ -9,13 +9,13 @@ const CssTextField = withStyles({
       'width': '100%'
     },
     '& .MuiFormLabel-root': {
-      'font-family': 'Ubuntu',
+      'font-family': 'Ubuntu'
     },
     '& .MuiFormLabel-root.Mui-focused': {
       color: '#2ECFC1'
     },
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      'border-color': '#2ECFC1'
+      'border-color': '#2ECFC1',
     },
     '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':{
       'border-color': '#2ECFC1'

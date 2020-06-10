@@ -1,14 +1,37 @@
 @import '../Fonts/Fonts.css';
 
+* {
+  box-sizing: border-box;
+} 
+
 .wrap{
   margin: auto;
-  width: 300px;
+  width: 50%;
   font-family: 'Ubuntu';  
-  border: 1px solid grey;
-  border-radius: 5px;
+  border: 1.3px solid rgba(0,0,0,0.3);
+  border-radius: 3px;
+  background: white;
+  box-shadow: 3px 4px rgba(0,0,0,0.2);
 }
 
 .title{
   text-align: center;
+  font-size: 70px;
 }
 
+.title_color{
+  color: #2ECFC1;
+}
+
+.content{
+  width: 90%;
+  margin: auto;
+}
+
+.footer{
+  border-top: 1.3px solid rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
