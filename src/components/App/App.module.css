@@ -4,4 +4,11 @@
   margin: auto;
   width: 300px;
   font-family: 'Ubuntu';  
+  border: 1px solid grey;
+  border-radius: 5px;
 }
+
+.title{
+  text-align: center;
+}
+
