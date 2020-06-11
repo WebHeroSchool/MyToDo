@@ -12,13 +12,16 @@ const CssTextField = withStyles({
       'font-family': 'Ubuntu'
     },
     '& .MuiFormLabel-root.Mui-focused': {
-      color: '#2ECFC1'
+      'color': '#2ECFC1'
     },
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      'border-color': '#2ECFC1',
+      'border-color': '#2ECFC1'
     },
     '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':{
       'border-color': '#2ECFC1'
+    },
+    '& .MuiInputLabel-animated':{
+      'transition': 'color .4s cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform .4s cubic-bezier(0.0, 0, 0.2, 1) 0ms'
     }
   },
 })(TextField);

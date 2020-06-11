@@ -41,7 +41,7 @@ return(
     <ItemList todoItems={todoItems} />
   </div>
   <div className={styles.footer}>
-    <Left count={3}/>
+    <Left count={2}/>
     <Filter filterItems={filterItems}/>
     <Clear />
   </div>
