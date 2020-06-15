@@ -7,9 +7,8 @@ import Clear from '../Clear/Clear';
 import styles from './App.module.css'
 
 class App extends React.Component {
-  render() {
-
-    const todoItems = [{
+  state = {
+    todoItems:[{
       value: 'важное дело',
       done: false
     },
@@ -20,9 +19,9 @@ class App extends React.Component {
     {
       value: 'еще одно дело',
       done: true
-    }];
-  
-    const filterItems = [{
+    }],
+    
+    filterItems: [{
       item: 'Все',
       active: true
     },
@@ -33,22 +32,23 @@ class App extends React.Component {
     {
       item: 'Выполненые',
       active: false
-    }];
-  
-  return(
-  <div className={styles.wrap}>
-    <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
-    <div className={styles.content}>
-      <Input />
-      <ItemList todoItems={todoItems} />
-    </div>
-    <div className={styles.footer}>
-      <Left count={2}/>
-      <Filter filterItems={filterItems}/>
-      <Clear />
-    </div>
-  </div>)
-
+    }]
+  }
+  render() {
+    return(
+      <div className={styles.wrap}>
+        <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
+        <div className={styles.content}>
+          <Input />
+          <ItemList todoItems={this.state.todoItems} />
+        </div>
+        <div className={styles.footer}>
+          <Left count={2}/>
+          <Filter filterItems={this.state.filterItems}/>
+          <Clear />
+        </div>
+      </div>
+    )
   }
 };
 
