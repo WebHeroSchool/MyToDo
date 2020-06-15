@@ -34,13 +34,16 @@ class App extends React.Component {
       active: false
     }]
   }
+
+  checkboxClickDone = done => console.log(done);
+
   render() {
     return(
       <div className={styles.wrap}>
         <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
         <div className={styles.content}>
           <Input />
-          <ItemList todoItems={this.state.todoItems} />
+          <ItemList todoItems={this.state.todoItems} checkboxClickDone={this.checkboxClickDone} />
         </div>
         <div className={styles.footer}>
           <Left count={2}/>
