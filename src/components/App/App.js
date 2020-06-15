@@ -6,46 +6,50 @@ import Filter from '../FilterList/FilterList';
 import Clear from '../Clear/Clear';
 import styles from './App.module.css'
 
-const App = () => {
-  const todoItems = [{
-    value: 'важное дело',
-    done: false
-  },
-  {
-    value: 'дело',
-    done: true
-  },
-  {
-    value: 'еще одно дело',
-    done: true
-  }];
+class App extends React.Component {
+  render() {
 
-  const filterItems = [{
-    item: 'Все',
-    active: true
-  },
-  {
-    item: 'Активные',
-    active: false
-  },
-  {
-    item: 'Выполненые',
-    active: false
-  }];
+    const todoItems = [{
+      value: 'важное дело',
+      done: false
+    },
+    {
+      value: 'дело',
+      done: true
+    },
+    {
+      value: 'еще одно дело',
+      done: true
+    }];
+  
+    const filterItems = [{
+      item: 'Все',
+      active: true
+    },
+    {
+      item: 'Активные',
+      active: false
+    },
+    {
+      item: 'Выполненые',
+      active: false
+    }];
+  
+  return(
+  <div className={styles.wrap}>
+    <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
+    <div className={styles.content}>
+      <Input />
+      <ItemList todoItems={todoItems} />
+    </div>
+    <div className={styles.footer}>
+      <Left count={2}/>
+      <Filter filterItems={filterItems}/>
+      <Clear />
+    </div>
+  </div>)
 
-return(
-<div className={styles.wrap}>
-  <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
-  <div className={styles.content}>
-    <Input />
-    <ItemList todoItems={todoItems} />
-  </div>
-  <div className={styles.footer}>
-    <Left count={2}/>
-    <Filter filterItems={filterItems}/>
-    <Clear />
-  </div>
-</div>)
+  }
 };
 
 export default App;
