@@ -10,15 +10,18 @@ class App extends React.Component {
   state = {
     todoItems:[{
       value: 'важное дело',
-      done: false
+      done: false,
+      id: 1
     },
     {
       value: 'дело',
-      done: true
+      done: true,
+      id: 2
     },
     {
       value: 'еще одно дело',
-      done: true
+      done: true,
+      id: 3
     }],
     
     filterItems: [{
@@ -35,7 +38,24 @@ class App extends React.Component {
     }]
   }
 
-  checkboxClickDone = done => console.log(done);
+  checkboxChange = id => {
+    const newTodoItems = this.state.todoItems.map(item => {
+      const newItem = { ...item };
+      if(item.id === id){
+        newItem.done = !newItem.done;
+      }
+      return newItem;
+    })
+    this.setState({todoItems: newTodoItems})
+  }
+
+  onClickDelete = id => {
+    const newTodoItems = this.state.todoItems.filter(item => {
+      return item.id !== id;
+    })
+    this.setState({todoItems: newTodoItems});
+  }
+
 
   render() {
     return(
@@ -43,7 +63,10 @@ class App extends React.Component {
         <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
         <div className={styles.content}>
           <Input />
-          <ItemList todoItems={this.state.todoItems} checkboxClickDone={this.checkboxClickDone} />
+          <ItemList todoItems={this.state.todoItems} 
+                    checkboxChange={this.checkboxChange} 
+                    onClickDelete={this.onClickDelete}
+          />
         </div>
         <div className={styles.footer}>
           <Left count={2}/>
