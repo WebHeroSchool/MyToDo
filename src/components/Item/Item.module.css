@@ -2,6 +2,7 @@
   color: black;
   position: relative;
   padding-left: 40px;
+  transition: all .4s;
 }
 
 .done{

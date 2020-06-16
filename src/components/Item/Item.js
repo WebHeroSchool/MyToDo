@@ -2,9 +2,12 @@ import React from 'react';
 import classnames from 'classnames';
 import styles from './Item.module.css';
 
-const Item = ({value , done , checkboxClickDone}) => (<>
-<input type="checkbox" name="todo" className={styles.checkbox}
-onClick={() => checkboxClickDone(done)} ></input>
+const Item = ({value , done , id, checkboxChange}) => (<>
+<input type="checkbox" name="todo" 
+	className={styles.checkbox}
+	checked={done}
+	onChange={() => checkboxChange(id)} >
+</input>
 <label className={
   classnames({
     [styles.item]:true,
