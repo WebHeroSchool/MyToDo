@@ -35,7 +35,9 @@ class App extends React.Component {
     {
       item: 'Выполненые',
       active: false
-    }]
+    }],
+    
+    count: 3
   }
 
   checkboxChange = id => {
@@ -53,23 +55,34 @@ class App extends React.Component {
     const newTodoItems = this.state.todoItems.filter(item => {
       return item.id !== id;
     })
-    this.setState({todoItems: newTodoItems});
+    this.setState({todoItems: newTodoItems, count: this.state.count -1,});
   }
 
+  onKeyDownAdd = (value) => this.setState(state => ({
+        todoItems: [
+          ...state.todoItems,
+          {
+            value,
+            done: false,
+            id: state.count +1
+          }
+        ],
+        count: state.count +1
+  }));
 
   render() {
     return(
       <div className={styles.wrap}>
         <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
         <div className={styles.content}>
-          <Input />
+          <Input onKeyDownAdd={this.onKeyDownAdd}/>
           <ItemList todoItems={this.state.todoItems} 
                     checkboxChange={this.checkboxChange} 
                     onClickDelete={this.onClickDelete}
           />
         </div>
         <div className={styles.footer}>
-          <Left count={2}/>
+          <Left count={this.state.count}/>
           <Filter filterItems={this.state.filterItems}/>
           <Clear />
         </div>

@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import './Input.css';
 
+// style for input
 const CssTextField = withStyles({
   root: {
     '& .MuiFormControl-root': {
@@ -26,6 +27,39 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const Input = () => (<CssTextField id="outlined-basic" label="новое дело" variant="outlined" />);
+
+class Input extends React.Component{
+  state ={
+    InputValue: '',
+    error: false,
+    helperText: ''
+  };
+
+  onKeyDownAction = (e) => {
+    if(e.key === 'Enter'){
+      if(this.state.InputValue === ''){
+        this.setState({error: true , helperText: 'введите новое дело'});
+      }else{
+        this.props.onKeyDownAdd(this.state.InputValue);
+        this.setState({InputValue: '', error: false ,helperText:''});
+      }
+    }
+  }
+
+  render() {
+    return (
+      <CssTextField
+        id="outlined-basic" 
+        label="новое дело" 
+        variant="outlined"
+        value={this.state.InputValue}
+        error={this.state.error} 
+        helperText={this.state.helperText}
+        onChange={event => this.setState({ InputValue: event.target.value })}
+        onKeyDown={this.onKeyDownAction}
+      />
+    )
+  }
+}
 
 export default Input;
