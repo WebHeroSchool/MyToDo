@@ -18,6 +18,9 @@ const CssTextField = withStyles({
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       'border-color': '#2ECFC1'
     },
+    '& .MuiFormLabel-root.Mui-error': {
+      'color': '#f44336'
+    },
     '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':{
       'border-color': '#2ECFC1'
     },
@@ -38,7 +41,7 @@ class Input extends React.Component{
   onKeyDownAction = (e) => {
     if(e.key === 'Enter'){
       if(this.state.value === ''){
-        this.setState({error: true , helperText: 'введите новое дело'});
+        this.setState({error: true , helperText: 'ВВЕДИТЕ ТЕКСТ'});
       }else{
         this.props.onKeyDownAdd(this.state.value);
         this.setState({value: '', error: false ,helperText:''});
