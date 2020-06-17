@@ -30,18 +30,18 @@ const CssTextField = withStyles({
 
 class Input extends React.Component{
   state ={
-    InputValue: '',
+    value: '',
     error: false,
     helperText: ''
   };
 
   onKeyDownAction = (e) => {
     if(e.key === 'Enter'){
-      if(this.state.InputValue === ''){
+      if(this.state.value === ''){
         this.setState({error: true , helperText: 'введите новое дело'});
       }else{
-        this.props.onKeyDownAdd(this.state.InputValue);
-        this.setState({InputValue: '', error: false ,helperText:''});
+        this.props.onKeyDownAdd(this.state.value);
+        this.setState({value: '', error: false ,helperText:''});
       }
     }
   }
@@ -52,10 +52,10 @@ class Input extends React.Component{
         id="outlined-basic" 
         label="новое дело" 
         variant="outlined"
-        value={this.state.InputValue}
+        value={this.state.value}
         error={this.state.error} 
         helperText={this.state.helperText}
-        onChange={event => this.setState({ InputValue: event.target.value })}
+        onChange={event => this.setState({ value: event.target.value })}
         onKeyDown={this.onKeyDownAction}
       />
     )
