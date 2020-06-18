@@ -32,8 +32,11 @@ Item.defaultProps = {
 }
 
 Item.propTypes = {
+	value: PropTypes.string,
 	done: PropTypes.bool,
-	id: PropTypes.number
+	id: PropTypes.number,
+	checkboxChange: PropTypes.func,
+	onClickDelete: PropTypes.func
 };
 
 export default Item;

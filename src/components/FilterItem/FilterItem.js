@@ -11,6 +11,7 @@ const FilterItem = ({item , active}) => (<li className={
 }>{item}</li>)
 
 FilterItem.propTypes = {
+  item: PropTypes.string,
   active: PropTypes.bool
 }
 
