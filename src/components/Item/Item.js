@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Item.module.css';
 
@@ -29,5 +30,10 @@ const Item = ({value , done , id, checkboxChange, onClickDelete}) => (<>
 Item.defaultProps = {
 	done: false
 }
+
+Item.propTypes = {
+	done: PropTypes.bool,
+	id: PropTypes.number
+};
 
 export default Item;
