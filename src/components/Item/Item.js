@@ -26,4 +26,8 @@ const Item = ({value , done , id, checkboxChange, onClickDelete}) => (<>
 </svg>
 </>)
 
+Item.defaultProps = {
+	done: false
+}
+
 export default Item;
