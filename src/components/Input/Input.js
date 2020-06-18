@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import './Input.css';
 
+// style for input
 const CssTextField = withStyles({
   root: {
     '& .MuiFormControl-root': {
@@ -17,6 +18,9 @@ const CssTextField = withStyles({
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       'border-color': '#2ECFC1'
     },
+    '& .MuiFormLabel-root.Mui-error': {
+      'color': '#f44336'
+    },
     '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':{
       'border-color': '#2ECFC1'
     },
@@ -26,6 +30,39 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const Input = () => (<CssTextField id="outlined-basic" label="новое дело" variant="outlined" />);
+
+class Input extends React.Component{
+  state ={
+    value: '',
+    error: false,
+    helperText: ''
+  };
+
+  onKeyDownAction = (e) => {
+    if(e.key === 'Enter'){
+      if(this.state.value === ''){
+        this.setState({error: true , helperText: 'ВВЕДИТЕ ТЕКСТ'});
+      }else{
+        this.props.onKeyDownAdd(this.state.value);
+        this.setState({value: '', error: false ,helperText:''});
+      }
+    }
+  }
+
+  render() {
+    return (
+      <CssTextField
+        id="outlined-basic" 
+        label="новое дело" 
+        variant="outlined"
+        value={this.state.value}
+        error={this.state.error} 
+        helperText={this.state.helperText}
+        onChange={event => this.setState({ value: event.target.value })}
+        onKeyDown={this.onKeyDownAction}
+      />
+    )
+  }
+}
 
 export default Input;
