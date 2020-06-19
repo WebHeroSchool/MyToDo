@@ -5,15 +5,6 @@ import styles from './Item.module.css';
 
 
 class Item extends React.Component {
-	
-	componentDidMount(){
-   this.timer = setInterval(() => console.log('componentDidMount'), 1000);
-  }
-
-  componentWillUnmount(){
-		clearInterval(this.timer);
-	}
-	
 	render() {
 		const {value , done , id, checkboxChange, onClickDelete} = this.props;	
 		
