@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 import Left from '../Left/Left';
 import Input from '../Input/Input';
@@ -6,8 +6,8 @@ import Filter from '../FilterList/FilterList';
 import Clear from '../Clear/Clear';
 import styles from './App.module.css'
 
-class App extends React.Component {
-  state = {
+const App = () => {
+  const initialState = {
     todoItems:[{
       value: 'важное дело',
       done: false,
@@ -37,58 +37,65 @@ class App extends React.Component {
       active: false
     }],
     
-    count: 3
+    count: 3 
   }
 
-  checkboxChange = id => {
-    const newTodoItems = this.state.todoItems.map(item => {
+  const [todoItems, setTodoItems] = useState(initialState.todoItems);
+  const [filterItems] = useState(initialState.filterItems);
+  const [count, setCount] = useState(initialState.count);
+
+  useEffect(() => {
+    console.log('useEffect');
+  })
+
+  const checkboxChange = id => {
+    const newTodoItems = todoItems.map(item => {
       const newItem = { ...item };
       if(item.id === id){
         newItem.done = !newItem.done;
       }
       return newItem;
     })
-    this.setState({todoItems: newTodoItems})
+    setTodoItems(newTodoItems);
   }
 
-  onClickDelete = id => {
-    const newTodoItems = this.state.todoItems.filter(item => {
-      return item.id !== id;
-    })
-    this.setState({todoItems: newTodoItems, count: this.state.count -1,});
+  const onClickDelete = id => {
+    const newTodoItems = todoItems.filter(item => item.id !== id)
+    setTodoItems(newTodoItems);
+    setCount(count - 1);
   }
 
-  onKeyDownAdd = (value) => this.setState(state => ({
-        todoItems: [
-          ...state.todoItems,
-          {
-            value,
-            done: false,
-            id: state.count +1
-          }
-        ],
-        count: state.count +1
-  }));
+  const onKeyDownAdd = (value) => {
+    const newTodoItems = [
+    ...todoItems,
+    {
+      value,
+      done: false,
+      id: count +1
+    }];
+    setTodoItems(newTodoItems);
+    setCount(count +1);
+  };
 
-  render() {
-    return(
-      <div className={styles.wrap}>
-        <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
-        <div className={styles.content}>
-          <Input onKeyDownAdd={this.onKeyDownAdd}/>
-          <ItemList todoItems={this.state.todoItems} 
-                    checkboxChange={this.checkboxChange} 
-                    onClickDelete={this.onClickDelete}
-          />
-        </div>
-        <div className={styles.footer}>
-          <Left count={this.state.count}/>
-          <Filter filterItems={this.state.filterItems}/>
-          <Clear />
-        </div>
+
+  return(
+    <div className={styles.wrap}>
+      <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
+      <div className={styles.content}>
+        <Input onKeyDownAdd={onKeyDownAdd}/>
+        <ItemList todoItems={todoItems} 
+                  checkboxChange={checkboxChange} 
+                  onClickDelete={onClickDelete}
+        />
       </div>
-    )
-  }
+      <div className={styles.footer}>
+        <Left count={todoItems.length}/>
+        <Filter filterItems={filterItems}/>
+        <Clear />
+      </div>
+    </div>
+  )
+
 };
 
 export default App;
