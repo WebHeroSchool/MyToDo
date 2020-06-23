@@ -69,7 +69,7 @@ const App = () => {
     const newTodoItems = [
     ...todoItems,
     {
-      value,
+      value: value,
       done: false,
       id: count +1
     }];

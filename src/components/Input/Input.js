@@ -59,7 +59,7 @@ class Input extends React.Component{
         error={this.state.error} 
         helperText={this.state.helperText}
         onChange={event => this.setState({ value: event.target.value })}
-        onKeyDown={this.onKeyDownAction}
+        onKeyPress={this.onKeyDownAction}
       />
     )
   }
