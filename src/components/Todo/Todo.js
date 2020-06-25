@@ -72,6 +72,11 @@ const Todo = () => {
     setCount(count +1);
   };
 
+  const onClickDeleteComplete = () => {
+    const newTodoItems = todoItems.filter(item => !item.done )
+    setTodoItems(newTodoItems);
+  }
+
   
   return(<>
       <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
@@ -85,7 +90,7 @@ const Todo = () => {
       <div className={styles.footer}>
         <Left count={todoItems.length}/>
         <Filter filterItems={filterItems}/>
-        <Clear />
+        <Clear onClickDeleteComplete={onClickDeleteComplete}/>
       </div>
     </>)
 }
