@@ -76,7 +76,6 @@ const Todo = () => {
     const newTodoItems = todoItems.filter(item => !item.done )
     setTodoItems(newTodoItems);
   }
-
   
   return(<>
       <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
