@@ -6,7 +6,7 @@
 } 
 
 .nav{
-  width: 50%;
+  width: 60%;
   height: 50px;
   margin: auto;
   display: flex;
@@ -22,7 +22,7 @@
 .card{
   margin: auto;
   margin-top: 20px;
-  width: 50%;  
+  width: 60%;  
   border: 1.3px solid rgba(0,0,0,0.3);
   border-radius: 3px;
   background: white;
