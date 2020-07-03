@@ -1,6 +1,11 @@
 import React from 'react';
 import styles from './Clear.module.css'
 
-const Clear = () => <span className={styles.item}>Удалить выполненные</span>
+const Clear = ({onClickDeleteComplete}) => (
+  <span className={styles.item}
+        onClick={onClickDeleteComplete}>
+    Удалить выполненные
+  </span>
+)
 
 export default Clear;

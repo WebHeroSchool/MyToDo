@@ -8,7 +8,7 @@ class Item extends React.Component {
 	render() {
 		const {value , done , id, checkboxChange, onClickDelete} = this.props;	
 		
-		return <>
+		return (<>
 			<input type="checkbox" name="todo" 
 			className={styles.checkbox}
 			checked={done}
@@ -30,7 +30,7 @@ class Item extends React.Component {
 					C200.461,0,72.425,23.614,72.425,52.743c0,29.129,128.036,52.742,285.977,52.742c146.24,0,266.826-20.245,283.892-46.368
 					C643.659,57.027,644.378,54.9,644.378,52.742z"/>
 		</svg>
-		</>
+		</>)
 	}
 }
 
