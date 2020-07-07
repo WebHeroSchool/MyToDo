@@ -4,8 +4,8 @@ import Item from '../Item/Item';
 import styles from './ItemList.module.css';
 
 
-const ItemList = ({todoItems, checkboxChange, onClickDelete}) => (<>
-  {todoItems.length === 0 ? (
+const ItemList = ({filterItems, checkboxChange, onClickDelete, todoItems}) => (<>
+  {todoItems.length === 0  ? (
     <div className={styles.noworkInfo}>
       <svg className={styles.icon} viewBox="0 0 55.999 55.999">
         <g>
@@ -64,7 +64,7 @@ const ItemList = ({todoItems, checkboxChange, onClickDelete}) => (<>
       <span className={styles.noworkTitle}>Новых дел пока нет,<span className={styles.color}> но </span>их можно добавить!</span>
     </div>) : (
       <ul className={styles.list}>
-      {todoItems.map((item, key) => <li key={key} className={styles.item}>
+      {filterItems().map((item, key) => <li key={key} className={styles.item}>
         <Item value={item.value}
               done={item.done}
               id={item.id}
