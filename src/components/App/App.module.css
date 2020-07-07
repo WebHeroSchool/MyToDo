@@ -17,6 +17,7 @@
   background: white;
   box-shadow: 3px 4px rgba(0,0,0,0.2);
   font-weight: bold;
+  min-width: 1000px;
 }
 
 .card{
@@ -27,15 +28,18 @@
   border-radius: 3px;
   background: white;
   box-shadow: 3px 4px rgba(0,0,0,0.2);
+  min-width: 1000px;
 }
 
-@media (max-width: 768px){
+@media (max-width: 1000px){
   .nav{
     width: 100%;
+    min-width: 350px;
   }
 
   .card{
     width: 100%;
     margin-top: 10px;
+    min-width: 350px;
   }
 }

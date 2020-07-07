@@ -21,9 +21,9 @@
 }
 
 .link:first-child,.active:first-child{
-  border-left: 0px solid rgba(0,0,0,0.3);
+  border-left: 1.3px solid rgba(0,0,0,0);
 }
 
 .link:last-child,.active:last-child{
-  border-right: 0px solid rgba(0,0,0,0.3);
+  border-right: 1.3px solid rgba(0,0,0,0);
 }

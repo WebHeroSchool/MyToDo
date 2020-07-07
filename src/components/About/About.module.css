@@ -28,7 +28,7 @@
 }
 
 .info{
-  margin: 25px 0 0 20px;
+  margin-top: 25px;
 }
 
 .name{
@@ -47,7 +47,7 @@
 }
 
 .works{
-  margin: 35px 0 20px 20px;
+  margin: 35px 0 20px 0;
 }
 
 .worksTitle{
@@ -99,7 +99,6 @@
 }
 
 .list{
-  background-color: #31363F;
   border: 1.3px solid rgba(0,0,0,0.3);
   border-radius: 3px;
   list-style: none;
@@ -109,18 +108,17 @@
 
 .item{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 10px;
   border-top: 1.3px solid rgba(0,0,0,0.3);
-  color: white;
+  color: black;
   transition: all .4s;
 }
 
 .item:hover{
-  background-color: #24292E;
+  background-color: #F6F8FA;
   color: #2ECFC1;
-  padding: 20px 40px;
+  padding: 20px 20px;
   font-size: 20px;
 }
 
@@ -129,14 +127,31 @@
   height: 35px;
 }
 
+.language,.update{
+  font-size: 12px;
+  width: 20%;
+}
+
 .link{
   text-decoration: none;
 }
 
+.link:first-child>li{
+  border-top: 1.3px solid rgba(0,0,0,0);
+}
+
+.repoName{
+  width: 45%;
+  text-align: left;
+  padding-left: 20px;
+}
+
 .giticon{
-  fill: white;
+  fill: black;
   height: 25px;
   transition: all .4s;
+  width: 20%;
+  margin-right: -10px;
 }
 
 .error{
@@ -156,7 +171,39 @@
   font-weight: bold;
 }
 
-@media (max-width: 768px){
+.html_language,
+.css_language,
+.js_language{
+  position: relative;
+  margin-left: 10px;
+}
+
+.html_language::before,
+.css_language::before,
+.js_language::before{
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  right: 90%;
+  top: 15%;
+}
+
+.html_language::before{
+  background-color: #E34C26;
+}
+
+.css_language::before{
+  background-color: #563D7C;
+}
+
+.js_language::before{
+  background-color: #F1E05A;
+}
+
+
+@media (max-width: 1000px){
   .content{
     flex-direction: column;
     text-align: center;
@@ -186,5 +233,21 @@
   .repoTitle{
     margin: 0;
     text-align: center;
+  }
+
+  .language,.update{
+    font-size: 10px;
+  }
+
+  .html_language::before,
+  .css_language::before,
+  .js_language::before{
+
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    right: 95%;
+    top: 15%;
   }
 }

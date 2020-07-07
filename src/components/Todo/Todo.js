@@ -8,40 +8,15 @@ import styles from './Todo.module.css'
 
 const Todo = () => {
   const initialState = {
-    todoItems:[{
-      value: 'важное дело',
-      done: false,
-      id: 1
-    },
-    {
-      value: 'дело',
-      done: true,
-      id: 2
-    },
-    {
-      value: 'еще одно дело',
-      done: true,
-      id: 3
-    }],
+    todoItems:[],
     
-    filterItems: [{
-      item: 'Все',
-      active: true
-    },
-    {
-      item: 'Активные',
-      active: false
-    },
-    {
-      item: 'Выполненые',
-      active: false
-    }],
+    filter: 'Все',
     
-    count: 3 
+    count: 0 
   }
 
   const [todoItems, setTodoItems] = useState(initialState.todoItems);
-  const [filterItems] = useState(initialState.filterItems);
+  const [filter, setFilter] = useState(initialState.filter);
   const [count, setCount] = useState(initialState.count);
 
   const checkboxChange = id => {
@@ -49,14 +24,22 @@ const Todo = () => {
       const newItem = { ...item };
       if(item.id === id){
         newItem.done = !newItem.done;
+        if(newItem.done){
+          setCount(count -1)
+        }else{
+          setCount(count +1)
+        }
       }
       return newItem;
     })
     setTodoItems(newTodoItems);
   }
 
-  const onClickDelete = id => {
+  const onClickDelete = (id, done) => {
     const newTodoItems = todoItems.filter(item => item.id !== id)
+    if(done === false){
+      setCount(count -1)
+    }
     setTodoItems(newTodoItems);
   }
 
@@ -66,7 +49,7 @@ const Todo = () => {
     {
       value: value,
       done: false,
-      id: count +1
+      id: Number(new Date())
     }];
     setTodoItems(newTodoItems);
     setCount(count +1);
@@ -76,7 +59,14 @@ const Todo = () => {
     const newTodoItems = todoItems.filter(item => !item.done )
     setTodoItems(newTodoItems);
   }
+
+
+  if(filter === 'Все'){
+    const todo = [...todoItems]
+    setTodoItems(todo)
+  }
   
+
   return(<>
       <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
       <div className={styles.content}>
@@ -87,8 +77,8 @@ const Todo = () => {
         />
       </div>
       <div className={styles.footer}>
-        <Left count={todoItems.length}/>
-        <Filter filterItems={filterItems}/>
+        <Left count={count}/>
+        <Filter filter={filter} setFilter={setFilter}/>
         <Clear onClickDeleteComplete={onClickDeleteComplete}/>
       </div>
     </>)

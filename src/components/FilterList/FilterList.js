@@ -1,17 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './FilterList.module.css'
-import FilterItem from '../FilterItem/FilterItem'
 
-const Filter = ({filterItems}) => (<ul className={style.list}>
-  {filterItems.map((item, key) =>
-    <FilterItem key={key} item={item.item} active={item.active}/>
-  )}
+const Filter = ({filter, setFilter}) => (<ul className={style.list}>
+  <li className={filter === 'Все' ? style.active : style.item}
+      onClick={() => setFilter('Все')}>
+      Все
+  </li>
+  <li className={filter === 'Аквтивные' ? style.active : style.item}
+      onClick={() => setFilter('Аквтивные')}>
+      Аквтивные
+  </li>
+  <li className={filter === 'Выполненые' ? style.active : style.item}
+      onClick={() => setFilter('Выполненые')}>
+      Выполненые
+  </li>
 </ul>)
-
-FilterItem.propTypes = {
-  item: PropTypes.string,
-  active: PropTypes.bool
-}
 
 export default Filter;
