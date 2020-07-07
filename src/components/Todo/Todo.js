@@ -59,12 +59,6 @@ const Todo = () => {
     const newTodoItems = todoItems.filter(item => !item.done )
     setTodoItems(newTodoItems);
   }
-
-
-  if(filter === 'Все'){
-    const todo = [...todoItems]
-    setTodoItems(todo)
-  }
   
 
   return(<>
