@@ -21,15 +21,24 @@ const Todo = () => {
 
   useEffect(() => {
     const todoItems = localStorage.getItem("todoItems");
-    setTodoItems(JSON.parse(todoItems));
+    if(todoItems === null){
+      setTodoItems([])
+    }else{
+      setTodoItems(JSON.parse(todoItems));
+    }
     const count = localStorage.getItem("count");
-    setCount(JSON.parse(count))
+    if(count === null){
+      setCount(0)
+    }else{
+      setCount(JSON.parse(count));
+    }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("todoItems", JSON.stringify(todoItems));
     localStorage.setItem("count", JSON.stringify(count));
   }, [todoItems,count]);
+  
 
   const checkboxChange = id => {
     const newTodoItems = todoItems.map(item => {

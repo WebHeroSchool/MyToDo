@@ -5,7 +5,7 @@ import styles from './ItemList.module.css';
 
 
 const ItemList = ({filterItems, checkboxChange, onClickDelete, todoItems}) => (<>
-  {todoItems.length === 0  ? (
+  {todoItems.length === 0 ? (
     <div className={styles.noworkInfo}>
       <svg className={styles.icon} viewBox="0 0 55.999 55.999">
         <g>
