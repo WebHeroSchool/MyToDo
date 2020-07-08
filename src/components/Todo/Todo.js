@@ -64,7 +64,7 @@ const Todo = () => {
     setTodoItems(newTodoItems);
   }
 
-  const onKeyDownAdd = value => {
+  const addNewTodo = value => {
     const newTodoItems = [
     ...todoItems,
     {
@@ -100,7 +100,7 @@ const Todo = () => {
   return(<>
       <h1 className={styles.title}>M<span className={styles.title_color}>y</span>ToDo</h1>
       <div className={styles.content}>
-        <Input onKeyDownAdd={onKeyDownAdd}/>
+        <Input addNewTodo={addNewTodo} todoItems={todoItems} />
         <ItemList todoItems={todoItems} 
                   checkboxChange={checkboxChange} 
                   onClickDelete={onClickDelete}
