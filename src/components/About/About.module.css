@@ -20,6 +20,7 @@
 .user{
   width: 50%;
   margin-right: 30px;
+  text-align: center;
 }
 
 .img{
@@ -42,8 +43,6 @@
 
 .location{
   margin-top: 15px;
-  display: flex;
-  align-items: center;
 }
 
 .works{
@@ -52,6 +51,7 @@
 
 .worksTitle{
   margin: 0;
+  text-align: start;
 }
 
 .worksList{
@@ -125,6 +125,7 @@
 .item:hover .giticon{
   fill: #2ECFC1;
   height: 35px;
+  color: #2ECFC1;
 }
 
 .language,.update{
@@ -217,12 +218,12 @@
     margin: 0;
   }
 
-  .location{
-    display: block;
-  }
-
   .works{
     margin: 35px 0 0 0;
+  }
+
+  .worksTitle{
+    text-align: center;
   }
 
   .repo{

@@ -30,7 +30,7 @@ const CssTextField = withStyles({
 
 
 class Input extends React.Component{
-  state ={
+  state = {
     value: '',
     error: false,
     helperText: ''
@@ -38,7 +38,7 @@ class Input extends React.Component{
 
 
   valueValidate = () => {
-    if(this.props.todoItems.map(item =>this.state.value === item.value)){
+    if(this.props.todoItems.find(item => this.state.value === item.value)){
       this.setState({error: true , helperText: 'ТАКОЕ ДЕЛО УЖЕ ЕСТЬ'});
     }
     else if(this.state.value === ''){

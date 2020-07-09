@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import styles from './App.module.css'
+import styles from './App.module.css';
 import Links from '../Links/Links';
 import Todo from '../Todo/Todo';
 import Contacts from '../Contacts/Contacts';
@@ -9,9 +9,9 @@ import About from '../About/About';
 const App = () => {
   return(
     <BrowserRouter>
-      <div className={styles.nav}>
+      <nav className={styles.nav}>
         <Links></Links>
-      </div>
+      </nav>
       <div className={styles.card}>
         <Route path='/about' component={About}></Route>
         <Route path='/' exact component={Todo}></Route>
