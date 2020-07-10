@@ -8,31 +8,17 @@ import styles from './Todo.module.css'
 
 const Todo = () => {
   const initialState = {
-    todoItems:[],
+    todoItems:JSON.parse(localStorage.getItem("todoItems")) || [],
     
     filter: 'Все',
     
-    count: 0 
+    count: JSON.parse(localStorage.getItem("count")) || 0 
   }
 
   const [todoItems, setTodoItems] = useState(initialState.todoItems);
   const [filter, setFilter] = useState(initialState.filter);
   const [count, setCount] = useState(initialState.count);
 
-  useEffect(() => {
-    const todoItems = localStorage.getItem("todoItems");
-    if(todoItems === null){
-      setTodoItems([])
-    }else{
-      setTodoItems(JSON.parse(todoItems));
-    }
-    const count = localStorage.getItem("count");
-    if(count === null){
-      setCount(0)
-    }else{
-      setCount(JSON.parse(count));
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("todoItems", JSON.stringify(todoItems));
@@ -82,15 +68,13 @@ const Todo = () => {
   }
   
   const filterItems = () => {
-    if(filter === 'Все'){
-      return todoItems;
-    }
     if(filter === 'Активные'){
       return todoItems.filter(item => !item.done);
     }
     if(filter === 'Выполненые'){
       return todoItems.filter(item => item.done);
-    } 
+    }
+    return todoItems; 
   }
   
   const changeFilter = (name) => {

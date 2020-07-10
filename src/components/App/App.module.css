@@ -5,6 +5,10 @@
   font-family: 'Ubuntu';
 } 
 
+input, textarea, select {
+  -webkit-appearance: none;
+}
+
 .nav{
   width: 60%;
   height: 50px;
