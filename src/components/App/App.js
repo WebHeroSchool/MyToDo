@@ -17,6 +17,7 @@ const App = () => {
         <Route path='/' exact component={Todo}></Route>
         <Route path='/contacts' component={Contacts}></Route>
       </div>
+      <span className={styles.school}>Выполнено в <span className={styles.webhero}>WebHero</span>School</span>
     </Router>
   )
 };

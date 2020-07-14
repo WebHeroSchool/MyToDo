@@ -5,6 +5,18 @@
   font-family: 'Ubuntu';
 } 
 
+.school{
+  display: block;
+  width: 230px;
+  margin: 20px auto;
+}
+
+.webhero{
+  font-weight: bold;
+  color: #FFD32B;
+  font-family: 'Oswald', sans-serif;
+}
+
 .nav{
   width: 60%;
   height: 50px;
