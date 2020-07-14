@@ -1,6 +1,6 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
-import styles from './App.module.css'
+import {HashRouter as Router, Route} from 'react-router-dom';
+import styles from './App.module.css';
 import Links from '../Links/Links';
 import Todo from '../Todo/Todo';
 import Contacts from '../Contacts/Contacts';
@@ -8,16 +8,17 @@ import About from '../About/About';
 
 const App = () => {
   return(
-    <BrowserRouter>
-      <div className={styles.nav}>
+    <Router>
+      <nav className={styles.nav}>
         <Links></Links>
-      </div>
+      </nav>
       <div className={styles.card}>
         <Route path='/about' component={About}></Route>
         <Route path='/' exact component={Todo}></Route>
         <Route path='/contacts' component={Contacts}></Route>
       </div>
-    </BrowserRouter>
+      <span className={styles.school}>Выполнено в <span className={styles.webhero}>WebHero</span>School</span>
+    </Router>
   )
 };
 
